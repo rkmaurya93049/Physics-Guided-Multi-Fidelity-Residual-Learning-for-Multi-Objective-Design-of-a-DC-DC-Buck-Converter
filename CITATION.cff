@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-message: "If you use this research, please cite the manuscript and this repository."
+message: "If you use this research repository, please cite the manuscript/repository and use any DOI added after archival release."
 title: "Physics-Guided Multi-Fidelity Residual Learning for Multi-Objective Design of a DC-DC Buck Converter"
 type: software
 authors:
@@ -7,9 +7,6 @@ authors:
     given-names: "Raushan"
     email: "raushankumar321670@gmail.com"
 repository-code: "https://github.com/rkmaurya93049/Physics-Guided-Multi-Fidelity-Residual-Learning-for-Multi-Objective-Design-of-a-DC-DC-Buck-Converter"
-license: "NOASSERTION"
-version: "0.1.0"
-date-released: "2026-08-30"
 abstract: >-
   Research repository supporting a simulation-level physics-guided multi-fidelity
   workflow for multi-objective design of a DC-DC buck converter using analytical
