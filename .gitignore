@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.venv/
+venv/
+env/
+.ipynb_checkpoints/
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Temporary / generated files
+*.tmp
+*.bak
+*.autosave
+~$*
+
+# LTspice generated binaries / caches
+*.raw
+*.fft
+*.plt
+*.exe.log
+
+# Large local archives
+*.zip
+*.7z
+*.rar
+
+# Python build / test
+build/
+dist/
+*.egg-info/
+.pytest_cache/
+
+# Keep source netlists, schematics, logs and text outputs tracked.
