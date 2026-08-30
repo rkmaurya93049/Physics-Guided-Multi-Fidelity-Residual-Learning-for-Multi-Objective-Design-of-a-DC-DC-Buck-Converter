@@ -6,6 +6,7 @@ authors:
   - family-names: "Kumar"
     given-names: "Raushan"
     email: "raushankumar321670@gmail.com"
+    orcid: "https://orcid.org/0009-0005-3755-1345"
 repository-code: "https://github.com/rkmaurya93049/Physics-Guided-Multi-Fidelity-Residual-Learning-for-Multi-Objective-Design-of-a-DC-DC-Buck-Converter"
 abstract: >-
   Research repository supporting a simulation-level physics-guided multi-fidelity
