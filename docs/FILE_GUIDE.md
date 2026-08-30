@@ -1,135 +1,96 @@
 # File Guide
 
-This document is the map between repository folders and the research workflow. Update the exact filenames after the original project files are uploaded.
+This is the artifact map for the current public repository. Original research files are preserved where they carry provenance value; curated documentation/figures are separated from raw evidence.
 
-## `manuscript/`
+## Manuscript
 
-Purpose: publication/preprint files.
+- `manuscript/publication_report.pdf` — current 4-page scientific manuscript.
 
-Expected contents:
+Do not add multiple outdated manuscript drafts to the public research path.
 
-- final submission/preprint PDF
-- optional editable DOCX source
+## Canonical notebooks
 
-Do not keep multiple outdated manuscript drafts in the public release.
-
-## `notebooks/`
-
-Purpose: executable research workflow.
-
-Expected notebook roles:
-
-| Role | Suggested filename |
+| File | Role |
 |---|---|
-| Analytical data generation / model equations | `01_analytical_data_generation.ipynb` |
-| Automated LTspice sweep / parsing | `02_spice_automation.ipynb` |
-| ML training, transfer evaluation, residual correction | `03_ml_training_and_residual_correction.ipynb` |
-| NSGA-II optimization and candidate selection | `04_nsga2_optimization.ipynb` |
+| `notebooks/analytical_model.ipynb` | analytical buck equations, Latin-hypercube sampling, 70,000-row dataset generation |
+| `notebooks/spice_automation.ipynb` | PyLTSpice matched-coordinate sweep, reference-circuit editing and log parsing |
+| `notebooks/ml_training.ipynb` | RF/XGBoost/MLP training, analytical→LTspice transfer, target-wise residual correction, hold-out/CV evaluation, broad and constrained NSGA-II, balanced-candidate selection |
 
-If your existing notebook names differ, keep them and update this table rather than risking accidental code changes.
+There is **no separate optimization notebook required**: the final optimization pipeline is already contained in `ml_training.ipynb`.
 
-## `data/analytical/`
+The notebooks are historical research records and may contain iterative/development cells. Do not silently rewrite their numerical history merely for appearance.
 
-Purpose: low-fidelity analytical data.
+## Data
 
-Expected content:
+### `data/analytical/`
 
-- the 70,000-row analytical dataset
-- any compact metadata describing columns/units
+- `analytical_dataset.csv` — 70,000 analytical design points and analytical targets.
 
-## `data/ltspice/`
+### `data/ltspice/`
 
-Purpose: switching-level data used for cross-fidelity correction.
+- `spice_dataset.csv` — retained switching-level dataset used downstream.
+- `spice_vs_analytical_comparison.csv` — matched analytical/LTspice comparison with derived error/feature columns.
 
-Expected content:
+A separate raw pre-filter 300-run CSV is **not currently archived**; do not claim otherwise unless one is later added.
 
-- 300-run automation output if retained
-- cleaned 285-row dataset used for residual learning
-- any explicit filtering summary
+### `data/pareto/`
 
-## `data/pareto/`
+- `pareto_front_constrained.csv` — final 100 surrogate non-dominated candidates from the safeguarded bounded search.
 
-Purpose: final safeguarded NSGA-II outputs.
+## LTspice
 
-Expected content:
+### `ltspice/reference/`
 
-- final constrained Pareto CSV with 100 surrogate non-dominated candidates
-- optional normalized-distance selection table
+- `Draft1.asc` — reference/common buck schematic used by the automation workflow.
 
-## `ltspice/reference/`
+### `ltspice/automation/`
 
-Purpose: common switching-level circuit/template used during automation.
+This folder documents the automation role. The canonical automation notebook is `notebooks/spice_automation.ipynb`; keeping a second byte-identical notebook here is unnecessary.
 
-Include source schematics/netlists needed to understand the reference model.
+### `ltspice/validation/`
 
-## `ltspice/automation/`
+- `Draft2.asc` — balanced selected design/manual engineering check.
+- `Draft3_minRipple.asc` — minimum-ripple representative design.
+- `Draft4_maxEfficiency.asc` — maximum **surrogate-predicted** efficiency representative design.
 
-Purpose: sweep templates or generated configuration needed by the automation notebook.
+The filenames are historical. Interpret candidate labels using the manuscript and this guide rather than assuming that “maxEfficiency” means measured LTspice maximum efficiency.
 
-Avoid uploading hundreds of redundant generated files when a template + dataset + notebook is sufficient to reproduce them.
+### `ltspice/logs/`
 
-## `ltspice/validation/`
+- `Draft1.log`
+- `Draft2.log`
+- `Draft3_minRipple.log`
+- `Draft4_maxEfficiency.log`
 
-Purpose: the representative final candidate source files.
+These logs preserve direct manual LTspice measurements. They include later 9–10 ms engineering checks; the manuscript's main representative validation table remains the common original 4–5 ms protocol. Do not mix the two purposes.
 
-Important representative cases:
+## Figures
 
-- minimum-ripple candidate
-- maximum surrogate-predicted-efficiency candidate
-- balanced selected candidate
-- optional baseline/reference engineering check
+### `figures/main/`
 
-## `ltspice/logs/`
+Reviewer/professor-facing curated figures:
 
-Purpose: direct numerical evidence from LTspice.
+- `workflow.svg`
+- `ltspice_reference.svg`
+- `residual_correction.svg`
+- `pareto_front.svg`
 
-Include the logs used to support the representative validation table and manual reconstruction/window-sensitivity discussion.
+### `figures/archive/raw_uploads/`
 
-## `figures/`
+All originally uploaded screenshots are retained here as raw visual provenance. These include development plots, switching waveforms, startup plots and redundant/intermediate screenshots. They are not all publication figures.
 
-Purpose: publication-quality figures.
+## Documentation
 
-Keep only the final/verified versions in the archival release. Recommended filenames:
+- `docs/METHODOLOGY.md` — implemented scientific method, assumptions and limitations.
+- `docs/REPRODUCIBILITY.md` — reproduction sequence and source-to-result checks.
+- `docs/FILE_GUIDE.md` — this file.
+- `docs/REPOSITORY_STATUS.md` — completeness matrix and known archival limitations.
 
-- `workflow_verified.png`
-- `ltspice_reference.png`
-- `residual_correction_verified.png`
-- `pareto_front_verified.png`
+## Provenance rules
 
-## `results/`
-
-Purpose: small human-readable summaries derived from the notebooks/data.
-
-Good examples:
-
-- model metric table
-- final search bounds
-- representative validation summary
-- balanced-candidate selection summary
-
-Do not duplicate entire source datasets here.
-
-## `docs/`
-
-Purpose: research documentation.
-
-Current files:
-
-- `METHODOLOGY.md` — implemented research method and limitations
-- `REPRODUCIBILITY.md` — source-to-result reproduction procedure
-- `FILE_GUIDE.md` — this file
-
-Optional future documents:
-
-- technical source audit
-- data dictionary
-- changelog for the archival release
-
-## Naming and provenance rules
-
-1. Preserve original raw/source files when they carry evidentiary value.
-2. Do not silently edit historical LTspice logs or CSV outputs.
-3. If a cleaned file is derived from a raw file, make the relationship explicit in a notebook or README.
-4. Record units in filenames/metadata or column documentation where ambiguity is possible.
-5. Keep superseded files out of the release or place them in a clearly marked archive outside the main reproducibility path.
-6. Never upload credentials, tokens, personal identity documents, or unrelated files.
+1. Never modify historical CSV values or LTspice logs to make them agree with a narrative.
+2. Keep the original 4–5 ms validation protocol distinct from later 9–10 ms engineering characterization.
+3. Refer to final optimizer outputs as **surrogate non-dominated candidates** until independently simulated/measured.
+4. Treat LTspice as a switching-level simulation reference, not hardware ground truth.
+5. Preserve raw evidence in clearly marked archives rather than cluttering the main reviewer-facing path.
+6. Do not upload credentials, identity documents or unrelated private files.
