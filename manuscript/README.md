@@ -1,5 +1,5 @@
 # Manuscript
 
-Place the current submission/preprint PDF here as `publication_report.pdf`.
+- `publication_report.pdf` — current 4-page scientific manuscript supporting this repository.
 
-Until formal peer-reviewed acceptance, describe the document as a manuscript or preprint rather than a published paper.
+Status should be described as **manuscript/preprint or submitted manuscript** until an actual peer-reviewed acceptance occurs. If a venue-specific submission version is later created, keep only the relevant public version here or move superseded drafts into a clearly labeled archive.
