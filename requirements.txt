@@ -1,0 +1,15 @@
+# IMPORTANT
+# The original research environment was not version-locked.
+# Replace the unpinned entries below with the exact versions from the environment
+# used for the archived/reproducible release (for example via `pip freeze`).
+
+numpy
+pandas
+scipy
+scikit-learn
+xgboost
+matplotlib
+pymoo
+PyLTSpice
+jupyter
+notebook
