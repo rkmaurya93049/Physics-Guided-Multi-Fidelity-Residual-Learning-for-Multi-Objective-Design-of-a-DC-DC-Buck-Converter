@@ -1,0 +1,30 @@
+LTspice 26.0.2 for Windows
+Circuit: C:\Users\raush\Desktop\research-project\Draft3_minRipple.net
+Start Time: Thu Aug 27 20:50:42 2026
+solver = Normal
+Maximum thread count: 12
+tnom = 27
+temp = 27
+method = trap
+Compress1stOrder = true
+Compress2ndOrder = true
+Direct Newton iteration succeeded in finding operating point.
+Total elapsed time: 5.253 seconds.
+
+Files loaded:
+C:\Users\raush\Desktop\research-project\Draft3_minRipple.net
+C:\Users\raush\AppData\Local\LTspice\lib\cmp\standard.dio
+
+il_avg_ss: AVG(I(L1) )=-1.9268798508 FROM 0.009 TO 0.01
+il_max_ss: MAX(I(L1) )=-1.84903669357 FROM 0.009 TO 0.01
+il_min_ss: MIN(I(L1) )=-2.0047647953 FROM 0.009 TO 0.01
+il_ripple_ss: IL_max_SS-IL_min_SS=0.15572810173
+vout_avg_ss: AVG(V(vout) )=4.8172478071 FROM 0.009 TO 0.01
+vout_max_ss: MAX(V(vout) )=4.81754267573 FROM 0.009 TO 0.01
+vout_min_ss: MIN(V(vout) )=4.81691884995 FROM 0.009 TO 0.01
+vout_ripple_ss: Vout_max_SS-Vout_min_SS=0.000623825788498
+pin_avg: AVG(V(vin)*I(V1) )=-9.6532840298 FROM 0.009 TO 0.01
+pout_avg: AVG(V(vout)*I(R) )=9.28235051146 FROM 0.009 TO 0.01
+il_startup_min: MIN(I(L1) )=-6.63750743866 FROM 0 TO 0.001
+il_startup_peak: -IL_startup_min=6.63750743866
+vout_startup_peak: MAX(V(vout) )=7.69226765037 FROM 0 TO 0.002

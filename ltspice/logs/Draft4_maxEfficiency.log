@@ -1,0 +1,35 @@
+LTspice 26.0.2 for Windows
+Circuit: C:\Users\raush\Desktop\research-project\Draft4_maxEfficiency.net
+Start Time: Thu Aug 27 21:23:19 2026
+solver = Normal
+Maximum thread count: 12
+tnom = 27
+temp = 27
+method = trap
+Compress1stOrder = true
+Compress2ndOrder = true
+Direct Newton iteration succeeded in finding operating point.
+Total elapsed time: 7.944 seconds.
+
+Files loaded:
+C:\Users\raush\Desktop\research-project\Draft4_maxEfficiency.net
+C:\Users\raush\AppData\Local\LTspice\lib\cmp\standard.dio
+
+il_avg_ss: AVG(I(L1) )=-1.92313770256 FROM 0.009 TO 0.01
+il_max_ss: MAX(I(L1) )=-1.42557728291 FROM 0.009 TO 0.01
+il_min_ss: MIN(I(L1) )=-2.4217736721 FROM 0.009 TO 0.01
+il_ripple_ss: IL_max_SS-IL_min_SS=0.996196389198
+vout_avg_ss: AVG(V(vout) )=4.80891592187 FROM 0.009 TO 0.01
+vout_max_ss: MAX(V(vout) )=4.83672389925 FROM 0.009 TO 0.01
+vout_min_ss: MIN(V(vout) )=4.7779747808 FROM 0.009 TO 0.01
+vout_ripple_ss: Vout_max_SS-Vout_min_SS=0.0587491184473
+pin_avg: AVG(V(vin)*I(V1) )=-9.64519010633 FROM 0.009 TO 0.01
+pout_avg: AVG(V(vout)*I(R) )=9.25045118138 FROM 0.009 TO 0.01
+il_startup_min: MIN(I(L1) )=-5.01066064835 FROM 0 TO 0.001
+il_startup_peak: -IL_startup_min=5.01066064835
+vout_startup_peak: MAX(V(vout) )=7.04686498642 FROM 0 TO 0.002
+vout_max_45: MAX(V(vout) )=4.83673048019 FROM 0.004 TO 0.005
+vout_min_45: MIN(V(vout) )=4.77796173096 FROM 0.004 TO 0.005
+vout_ripple_45: Vout_max_45-Vout_min_45=0.0587687492371
+pin_avg_45: AVG(V(vin)*I(V1) )=-9.6216193349 FROM 0.004 TO 0.005
+pout_avg_45: AVG(V(vout)*I(R) )=9.25059362898 FROM 0.004 TO 0.005
