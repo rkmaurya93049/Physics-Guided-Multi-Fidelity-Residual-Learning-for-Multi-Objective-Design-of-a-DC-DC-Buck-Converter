@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you use this research, please cite the manuscript and this repository."
+title: "Physics-Guided Multi-Fidelity Residual Learning for Multi-Objective Design of a DC-DC Buck Converter"
+type: software
+authors:
+  - family-names: "Kumar"
+    given-names: "Raushan"
+    email: "raushankumar321670@gmail.com"
+repository-code: "https://github.com/rkmaurya93049/Physics-Guided-Multi-Fidelity-Residual-Learning-for-Multi-Objective-Design-of-a-DC-DC-Buck-Converter"
+license: "NOASSERTION"
+version: "0.1.0"
+date-released: "2026-08-30"
+abstract: >-
+  Research repository supporting a simulation-level physics-guided multi-fidelity
+  workflow for multi-objective design of a DC-DC buck converter using analytical
+  modelling, automated LTspice simulations, residual machine learning, and NSGA-II.
+keywords:
+  - buck converter
+  - multi-fidelity learning
+  - residual learning
+  - LTspice
+  - NSGA-II
+  - power electronics
+  - surrogate modelling
